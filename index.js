@@ -58,7 +58,8 @@ server.delete("/destination",(request,response)=>{
     response.send("destination successfully deleted");
 })
 //listening on a particular port
-server.listen(3000,()=>console.log("Listening on port 3000"));
+const PORT = process.env.PORT || 3000
+server.listen(PORT,()=>console.log("Listening on port "));
 
 
 function addUniqueNumbersToDestinations(database)
