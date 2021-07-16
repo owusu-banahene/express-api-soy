@@ -1,5 +1,6 @@
 const { request, response } = require("express");
 const express = require("express");
+const cors = require("cors");
 //make a dumb server
 const server = express();
 //use the body-parser
