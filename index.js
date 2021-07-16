@@ -21,15 +21,15 @@ server.get("/destination",(request,response)=>{
 server.post("/destination",(request,response)=>{
     //generate unique_id
     const _id = generateUniqueIDs();
-    const {name,capital,flagcolor} = request.body
-    destinations[_id] = {_id,name,capital,flagcolor};
+    const {name,capital,flagcolor,code} = request.body
+    destinations[_id] = {_id,name,capital,flagcolor,code};
     //destinations.push(request.body);
     response.send({status:"success"});
 })
 
 server.put("/destination",(request,response)=>{
     const _id = request.query._id;
-    const {name:names, capital:capitals,flagcolors} = request.body;
+    const {name:names, capital:capitals,flagcolor:flagcolors,code:codes} = request.body;
     if(_id===undefined){
         return response.status(400).send("?_id is required");
     }
@@ -44,6 +44,9 @@ server.put("/destination",(request,response)=>{
     }
     if(flagcolors !==undefined){
         destinations[_id].flagcolor = flagcolors;
+    }
+    if(codes !== undefined){
+        destinations.code=codes;
     }
     response.send("Success");
 })
