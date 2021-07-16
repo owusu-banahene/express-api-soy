@@ -4,6 +4,7 @@ const express = require("express");
 const server = express();
 //use the body-parser
 server.use(express.json());
+server.use(cors())
 //declare an array of destinations
 const {db:destinations} = require("./DB");
 const {generateUniqueIDs} =require("./HELPERS");
